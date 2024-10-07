@@ -1,0 +1,15 @@
+.login-section {
+    width: 47%;
+  }
+  
+  .home-section {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
