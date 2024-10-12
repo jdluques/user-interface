@@ -4,7 +4,7 @@ const BACKEND_URL = process.env.REACT_BACKEND_URL;
 
 export const fetchCreateProject = async (body, userId) => {
     try {
-        const response = await axios.post(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/proyectos`, body, {
+        const response = await axios.post(`54.234.150.200:8081/orchestrator/proyectos`, body, {
             params: { usuarioId: userId },
         });
         return response.data;
@@ -15,7 +15,7 @@ export const fetchCreateProject = async (body, userId) => {
 
 export const fetchUserProjects = async (userId, page) => {
     try {
-        const response = await axios.get(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/proyectos`, {
+        const response = await axios.get(`54.234.150.200:8081/orchestrator/proyectos`, {
             params: { usuarioId: userId, page: page },
         });
         return response.data;
@@ -26,7 +26,7 @@ export const fetchUserProjects = async (userId, page) => {
 
 export const fetchProjectById = async (id) => {
     try {
-        const response = await axios.get(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/proyectos/${id}`);
+        const response = await axios.get(`54.234.150.200:8081/orchestrator/proyectos/${id}`);
         return response.data;
     } catch (error) {
         throw new Error(error.message || "Failed to fetch project by ID");
@@ -35,7 +35,7 @@ export const fetchProjectById = async (id) => {
 
 export const updateProjectById = async (id, body) => {
     try {
-        const response = await axios.put(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/proyectos/${id}`, body);
+        const response = await axios.put(`54.234.150.200:8081/orchestrator/proyectos/${id}`, body);
         return response.data;
     } catch (error) {
         throw new Error(error.message || "Failed to update project");
@@ -44,7 +44,7 @@ export const updateProjectById = async (id, body) => {
 
 export const deleteProjectById = async (id) => {
     try {
-        await axios.delete(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/proyectos/${id}`);
+        await axios.delete(`54.234.150.200:8081/orchestrator/proyectos/${id}`);
         console.log("Project deleted successfully");
     } catch (error) {
         throw new Error(error.message || "Failed to delete project");
@@ -53,7 +53,7 @@ export const deleteProjectById = async (id) => {
 
 export const completeProjectById = async (id) => {
     try {
-        await axios.put(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/proyectos/${id}`, { fechaFin: new Date().toISOString() });
+        await axios.put(`54.234.150.200:8081/orchestrator/proyectos/${id}`, { fechaFin: new Date().toISOString() });
         console.log("Project marked as completed");
     } catch (error) {
         throw new Error(error.message || "Failed to complete project");

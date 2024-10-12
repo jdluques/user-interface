@@ -6,7 +6,7 @@ const BACKEND_URL = process.env.REACT_BACKEND_URL;
 
 export const fetchLogin = async (body) => {
   try {
-    const response = await axios.post(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/users/login`, body);
+    const response = await axios.post(`54.234.150.200:8081/orchestrator/users/login`, body);
     setTokenAndId(response.data.token, response.data.createdUser.id);
     console.log("Successful login");
   } catch (error) {
@@ -16,7 +16,7 @@ export const fetchLogin = async (body) => {
 
 export const fetchRegister = async (body) => {
   try {
-    const response = await axios.post(`http://ABLProduccion-143083708.us-east-1.elb.amazonaws.com/orchestrator/users`, body);
+    const response = await axios.post(`54.234.150.200:8081/orchestrator/users`, body);
     setTokenAndId(response.data.token, response.data.createdUser.id);
     console.log("Successful register");
   } catch (error) {
